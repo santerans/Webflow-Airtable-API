@@ -36,12 +36,14 @@ const getInfo = (item,data) => {
     var parent = elem.closest('div');
     var field = elem.attr('fname');
     var array = data['fields'][field];
+    var bgimg = elem.attr('bgimg');
     $(this).remove();
     for (let i = 0; i < array.length; i++) {
       elem.attr('href', array[i].url);
       elem.attr('target', "_blank");
       elem.attr('download', true);
-      elem.clone().prependTo(parent); 
+      bgimg != undefined ? elem.attr('style',"background-image: url(" + 'img_girl.jpg' + ");") : null;
+      elem.clone().appendTo(parent);
     }
   });    
         
