@@ -37,13 +37,12 @@ const getInfo = (item,data) => {
     var field = elem.attr('fname');
     var array = data['fields'][field];
     var bgimg = elem.attr('bgimg');
-    var img = array[i]['thumbnails']['large']['url'];
     $(this).remove();
     for (let i = 0; i < array.length; i++) {
       elem.attr('href', array[i].url);
       elem.attr('target', "_blank");
       elem.attr('download', true);
-      bgimg !== "false" ? elem.attr('style',"background-image: url(" + img + ");") : null;
+      bgimg !== "false" ? elem.attr('style',"background-image: url(" + array[i]['thumbnails']['large']['url'] + ");") : null;
       elem.clone().appendTo(parent);
     }
   });    
