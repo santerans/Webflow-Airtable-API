@@ -43,7 +43,7 @@ const getInfo = (item,data) => {
       elem.attr('href', array[i].url);
       elem.attr('target', "_blank");
       elem.attr('download', true);
-      bgimg !== true ? elem.attr('style',"background-image: url(" + img + ");") : null;
+      bgimg !== "false" ? elem.attr('style',"background-image: url(" + img + ");") : null;
       elem.clone().appendTo(parent);
     }
   });    
