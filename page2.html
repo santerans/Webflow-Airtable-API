@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
+    <script type="module" src="airtable.js"></script>
   </head>
   <body baseid="appgy2K0OGa82oQBQ" tableid="tblyanuZMzOhzLRNH">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -22,10 +22,15 @@
         <label for="apellidos">Apellidos:</label><br>
         <input ftype="input" fname="Apellidos" type="text" id="apellidos" name="Apellidos" value="Terán Suárez"><br><br>
         <input type="date" name="Fecha de nacimiento" ftype="input" fname="Fecha de nacimiento" value="2023-01-22"><br><br>
-        <a style="display:table-cell;background-color:red;text-decoration: none;padding:50px;text-align:center;" href="https://myprogrammingnotes.com">
+        <a style="display:table-cell;background-color:red;text-decoration: none;padding:50px;text-align:center;" ftype="success" callid="1">
           button
         </a>
-        <input type="submit" value="Enviar" ftype="update" callID="1">
+        <div>
+          Hola
+          <input name="add" type="file" multiple ftype="input" fname="Fotografía"><br><br>
+        </div>
+        <img src="https://uploads-ssl.webflow.com/6262419a09246b04716e886a/6262419a09246bbaa46e88a0_proifle.jpg" class="profile-pic" ftype="img" fname="Fotografía" thumbnail="large" bgimg="true"><br><br>
+        <input type="submit" value="Enviar" ftype="button" callid="1" action="patch">
       </form> 
     </main>
   </body>

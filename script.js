@@ -12,8 +12,10 @@ const getInfo = (item,data) => {
       for (let i = 1; i < array.length; i++) {
         elem.clone().appendTo(parent).text(array[i]); 
       }
+    }else if(jQuery.type(array)!=="undefined"){
+      elem.text(array);
     }else{
-      $(this).text(array);
+      elem.text('');
     }
   });
 
@@ -25,9 +27,11 @@ const getInfo = (item,data) => {
     var field = elem.attr('fname');
     var array = data['fields'][field];
     $(this).remove();
-    for (let i = 0; i < array.length; i++) {
-      elem.attr('src', array[i]['thumbnails'][thumbnails]['url']);
-      elem.clone().prependTo(parent); 
+    if(jQuery.type(array)!=="undefined"){
+      for (let i = 0; i < array.length; i++) {
+        elem.attr('src', array[i]['thumbnails'][thumbnails]['url']);
+        elem.clone().prependTo(parent); 
+      }
     }
   });
 
@@ -38,12 +42,14 @@ const getInfo = (item,data) => {
     var array = data['fields'][field];
     var bgimg = elem.attr('bgimg');
     $(this).remove();
-    for (let i = 0; i < array.length; i++) {
-      elem.attr('href', array[i].url);
-      elem.attr('target', "_blank");
-      elem.attr('download', true);
-      bgimg !== "false" ? elem.attr('style',"background-image: url(" + array[i]['thumbnails']['large']['url'] + ");") : null;
-      elem.clone().appendTo(parent);
+    if(jQuery.type(array)!=="undefined"){
+      for (let i = 0; i < array.length; i++) {
+        elem.attr('href', array[i].url);
+        elem.attr('target', "_blank");
+        elem.attr('download', true);
+        bgimg !== "false" ? elem.attr('style',"background-image: url(" + array[i]['thumbnails']['large']['url'] + ");") : null;
+        elem.clone().appendTo(parent);
+      }
     }
   });    
         
@@ -57,7 +63,7 @@ const getInfo = (item,data) => {
       for (let i = 1; i < array.length; i++) {
         elem.clone().appendTo(parent).attr('href', array[i]); 
       }
-    }else{
+    }else if(jQuery.type(array)!=="undefined"){
       $(this).attr('href', array);
     }
   });
@@ -68,7 +74,7 @@ const getInfo = (item,data) => {
     var attrname = elem.attr('a-name');
     var fdata = data['fields'][field];
     var aformula = eval(elem.attr('a-formula'));
-      elem.attr(attrname, aformula);
+    elem.attr(attrname, aformula);
   });
 
   item.find('input[ftype="input"]').each(function() {
