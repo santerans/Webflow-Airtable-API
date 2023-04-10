@@ -236,7 +236,7 @@ const showLoading = (show=true,callID) => {
     });
 }
 
-$(document).ready(function($){
+$(document).ready(function(){
   $('form').submit(false);
   getRecord();
   getListRecords();
